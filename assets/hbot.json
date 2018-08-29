@@ -1,0 +1,266 @@
+{
+  "frames": [
+    {
+      "filename": "close_eye.png",
+      "frame": {
+        "x": 93,
+        "y": 84,
+        "w": 204,
+        "h": 165
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 339,
+        "y": 820,
+        "w": 63,
+        "h": 122
+      },
+      "sourceSize": {
+        "w": 700,
+        "h": 2000
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "opened_eyes.png",
+      "frame": {
+        "x": 93,
+        "y": 249,
+        "w": 204,
+        "h": 171
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 165,
+        "y": 63,
+        "w": 61,
+        "h": 75
+      },
+      "sourceSize": {
+        "w": 700,
+        "h": 2000
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "head.png",
+      "frame": {
+        "x": 70,
+        "y": 450,
+        "w": 467,
+        "h": 270
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 468,
+        "y": 56,
+        "w": 89,
+        "h": 127
+      },
+      "sourceSize": {
+        "w": 700,
+        "h": 2000
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "torso.png",
+      "frame": {
+        "x": 90,
+        "y": 939,
+        "w": 318,
+        "h": 186
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 201,
+        "y": 121,
+        "w": 124,
+        "h": 97
+      },
+      "sourceSize": {
+        "w": 700,
+        "h": 2000
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "body.png",
+      "frame": {
+        "x": 126,
+        "y": 543,
+        "w": 384,
+        "h": 735
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 369,
+        "y": 626,
+        "w": 58,
+        "h": 224
+      },
+      "sourceSize": {
+        "w": 700,
+        "h": 2000
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "lLeg.png",
+      "frame": {
+        "x": 75,
+        "y": 1300,
+        "w": 228,
+        "h": 236
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 1,
+        "w": 36,
+        "h": 60
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "rLeg.png",
+      "frame": {
+        "x": 318,
+        "y": 1300,
+        "w": 228,
+        "h": 236
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 4,
+        "w": 55,
+        "h": 55
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "lHand.png",
+      "frame": {
+        "x": 87,
+        "y": 1500,
+        "w": 193,
+        "h": 210
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 426,
+        "y": 144,
+        "w": 172,
+        "h": 360
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 1024
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "rHand.png",
+      "frame": {
+        "x": 318,
+        "y": 1500,
+        "w": 193,
+        "h": 210
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 302,
+        "y": 186,
+        "w": 145,
+        "h": 58
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 1024
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "joint.png",
+      "frame": {
+        "x": 96,
+        "y": 1758,
+        "w": 134,
+        "h": 108
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 391,
+        "y": 453,
+        "w": 122,
+        "h": 230
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 1024
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "hbot_sprite.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 600,
+      "h": 2000
+    },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:e6cbe243edc82598a06bd98050b911b6:bbd7c701e8c68dac013dbb364a3a724f:67db409c3740c609a74b59bcc48a57be$"
+  }
+}

@@ -1,0 +1,318 @@
+name: twenty_four_hours
+description: A new Flutter application.
+
+plugin:
+    androidPackage: io.flutter.plugins.androidintent
+    iosPrefix: FLT
+    pluginClass: AndroidIntentPlugin
+dependencies:
+  flutter:
+    sdk: flutter
+  #cloud_firestore: ^0.7.3
+  #firebase_auth: ^0.5.11
+  #firebase_database: ^1.0.1
+  #firebase_storage: ^0.3.7
+
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.0
+  font_awesome: ^4.7.0
+  font_awesome_flutter: ^7.0.0
+  http: ^0.11.3+16
+  image: ^2.0.3
+  intl: ^0.15.6
+  location: ^1.3.4
+  image_picker: ^0.4.5
+  spritewidget: 0.9.15
+  queries: ^0.0.15
+  flutter_flux: ^4.0.1
+  firebase_auth: ^0.5.11
+  firebase_storage: ^1.0.0
+  firebase_database: ^1.0.1
+  polygon_clipper: ^1.0.0
+  carousel: ^0.1.0
+  emoji: ^1.1.2
+  path_provider: ^0.4.1
+  shimmer: 0.0.4
+  json_annotation:
+  simple_coverflow: ^0.0.6
+  sensors: ^0.3.1
+  timeago: ^1.2.7
+  share: ^0.5.2
+  platform: ^2.0.0
+  meta: ^1.0.5
+  fluttie: ^0.2.3
+  uni_links: ^0.1.1
+  firebase_dynamic_links:
+  video_player:
+  connectivity:
+  device_info:
+  url_launcher:
+  flutter_youtube:
+  googleapis:
+  googleapis_auth:
+  flutter_radial_menu:
+  speech_bubble:
+  quick_actions:
+  camera:
+  image_cropper:
+  lamp:
+  flutter_image:
+  photo_view:
+  flutter_colorpicker: ^0.0.7
+
+
+
+
+
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner:
+  json_serializable:
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://www.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  fonts:
+    - family: Anton
+      fonts:
+        - asset: fonts/Anton-Regular.ttf
+          weight: 400
+
+    - family: Audiowide
+      fonts:
+        - asset: fonts/Audiowide-Regular.ttf
+          weight: 400
+
+    - family: ExoBlack
+      fonts:
+        - asset: fonts/Exo-Black.ttf
+        - asset: fonts/Exo-BlackItalic.ttf
+          weight: 400
+    - family: ExoBold
+      fonts:
+        - asset: fonts/Exo-Bold.ttf
+        - asset: fonts/Exo-ExtraBold.ttf
+        - asset: fonts/Exo-ExtraBoldItalic.ttf
+          weight: 400
+    - family: ExoLight
+      fonts:
+        - asset: fonts/Exo-ExtraLight.ttf
+        - asset: fonts/Exo-Light.ttf
+        - asset: fonts/Exo-ExtraLightItalic.ttf
+          weight: 400
+    - family: Exo
+      fonts:
+        - asset: fonts/Exo-Regular.ttf
+        - asset: fonts/Exo-Italic.ttf
+          weight: 400
+    - family: GochiHand
+      fonts:
+        - asset: fonts/GochiHand-Regular.ttf
+          weight: 400
+    - family: Inconsolata
+      fonts:
+        - asset: fonts/Inconsolata-Bold.ttf
+        - asset: fonts/Inconsolata-Regular.ttf
+          weight: 400
+    - family: Jua
+      fonts:
+        - asset: fonts/Jua-Regular.ttf
+          weight: 400
+    - family: IndieFlower
+      fonts:
+        - asset: fonts/IndieFlower.ttf
+          weight: 400
+    - family: Monoton
+      fonts:
+        - asset: fonts/Monoton-Regular.ttf
+          weight: 400
+    - family: Pacifico
+      fonts:
+        - asset: fonts/Pacifico-Regular.ttf
+          weight: 400
+    - family: PassionOne
+      fonts:
+        - asset: fonts/PassionOne-Regular.ttf
+          weight: 400
+    - family: PoorStory
+      fonts:
+        - asset: fonts/PoorStory-Regular.ttf
+          weight: 400
+    - family: Lobster
+      fonts:
+        - asset: fonts/Lobster/Lobster-Regular.ttf
+          weight: 400
+    - family: Chela
+      fonts:
+        - asset: fonts/Chela_One/ChelaOne-Regular.ttf
+          weight: 400
+    - family: Chicle
+      fonts:
+        - asset: fonts/Chicle/Chicle-Regular.ttf
+          weight: 400
+    - family: Engagement
+      fonts:
+        - asset: fonts/Engagement/Engagement-Regular.ttf
+          weight: 400
+    - family: Galada
+      fonts:
+        - asset: fonts/Galada/Galada-Regular.ttf
+          weight: 400
+    - family: Kaushan
+      fonts:
+        - asset: fonts/Kaushan_Script/KaushanScript-Regular.ttf
+          weight: 400
+    - family: Knewave
+      fonts:
+        - asset: fonts/Knewave/Knewave-Regular.ttf
+          weight: 400
+    - family: Pattaya
+      fonts:
+        - asset: fonts/Pattaya/Pattaya-Regular.ttf
+          weight: 400
+
+
+   # - family: Poppins
+     # fonts:
+      #  - asset: assets/fonts/Poppins-SemiBold.ttf
+      #    weight: 600
+       # - asset: assets/fonts/Poppins-Regular.ttf
+       #   weight: 400
+
+
+
+
+
+  uses-material-design: true
+  assets:
+    - images/ic_launcher.png
+    - images/hbot.png
+    - images/mnoon.png
+    - images/mnight.png
+    - images/mmorn.png
+    - images/grass-outline-hi.png
+    - images/blank.png
+    - images/sea.png
+    - images/night.png
+    - images/rainclouds.png
+    - images/cloudy.png
+    - images/windhead.png
+    - images/wind.png
+    - images/sun.png
+    - images/sun_hot.png
+    - assets/hbot.json
+    - assets/hbot_sprite.png
+    - images/hbot_sprite.png
+    - images/woman_work1.jpg
+    - images/woman_work2.jpg
+    - images/man_work.png
+    - images/man_work1.png
+    - images/strong_man.png
+    - GymJson/Awards.json
+    - ajax-loader.gif
+    - big_circleLoader.gif
+    #     ####  #####  #####  #   ######
+    #     #  #    #      #    #   ####
+    ####  ####    #      #    #   ###### All Lottie Animation assets Here
+    - assets/lottie/airplane_flying.json
+    - assets/lottie/bookmark.json
+    - assets/lottie/boxing.json
+    - assets/lottie/check_animation.json
+    - assets/lottie/coin_deposit.json
+    - assets/lottie/cycle_animation.json
+    - assets/lottie/error_message.json
+    - assets/lottie/exploding_heart.json
+    - assets/lottie/funky_chicken.json
+    - assets/lottie/heart_rate.json
+    - assets/lottie/like.json
+    - assets/lottie/like_icon.json
+    - assets/lottie/liked.json
+    - assets/lottie/little_balls.json
+    - assets/lottie/loading.json
+    - assets/lottie/loading_04.json
+    - assets/lottie/loading_book.json
+    - assets/lottie/loading_dots.json
+    - assets/lottie/location.json
+    - assets/lottie/location_bubble.json
+    - assets/lottie/notification_bell.json
+    - assets/lottie/oscillating_path.json
+    - assets/lottie/particle_explosion.json
+    - assets/lottie/playing.json
+    - assets/lottie/powerupp_app_onboard.json
+    - assets/lottie/rain.json
+    - assets/lottie/restless_gift_ii.json
+    - assets/lottie/rewards.json
+    - assets/lottie/saving_quotes.json
+    - assets/lottie/shijianjiazai.json
+    - assets/lottie/shopping_cart.json
+    - assets/lottie/sonar.json
+    - assets/lottie/star.json
+    - assets/lottie/storm.json
+    - assets/lottie/sun_and_rain.json
+    - assets/lottie/suncloud.json
+    - assets/lottie/swipe_left.json
+    - assets/lottie/swipe_menu.json
+    - assets/lottie/tickets.json
+    - assets/lottie/trophy.json
+    - assets/lottie/trophy_gold.json
+    - assets/lottie/twirl_particles_loading.json
+    - assets/lottie/volume_shake_indicator.json
+    - assets/lottie/walking.json
+    - assets/lottie/yoga_carpet.json
+    - assets/gifs/hbot_sleep.gif
+    - assets/weathersprites.png
+    - assets/weathersprites.json
+
+    - assets/ic_mg/ic_chest.png
+    - assets/ic_mg/ic_core.png
+    - assets/ic_mg/ic_shoulder.png
+    - assets/ic_mg/ic_biceps.png
+    - assets/ic_mg/ic_triceps.png
+    - assets/ic_mg/ic_back.png
+    - assets/ic_mg/ic_glutes.png
+    - assets/ic_mg/ic_traps.png
+    - assets/ic_mg/ic_lower_back.png
+    - assets/ic_mg/ic_quads.png
+    - assets/ic_mg/ic_glutes.png
+    - assets/ic_mg/ic_calves.png
+
+
+
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.io/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.io/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+
+
+
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.io/custom-fonts/#from-packages

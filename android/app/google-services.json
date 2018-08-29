@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "265161097807",
+    "firebase_url": "https://hours-db878.firebaseio.com",
+    "project_id": "hours-db878",
+    "storage_bucket": "hours-db878.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265161097807:android:f04b6f78fcfa363f",
+        "android_client_info": {
+          "package_name": "com.rookieplays.main24hours"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265161097807-nahidjv64b43lphof65ndtnupmd24ecg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDBKE3-ipXBqbkaFwcGIb8gCq0SlhIxrk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

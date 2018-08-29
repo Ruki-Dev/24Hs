@@ -1,0 +1,77 @@
+{
+  "gold": [
+    {
+      "title": "Welcome Rookie",
+      "description": "Finish A Full Workout",
+      "id": 1,
+      "_achieved": false
+    },
+    {
+      "title": "Just Getting Warmed Up",
+      "description": "Finish 10 Full Workout",
+      "id": 2,
+      "_achieved": false
+    },
+    {
+      "title": "Child's Play",
+      "description": "Finish 20 Full Workout",
+      "id": 4,
+      "_achieved": false
+    },
+    {
+      "title": "50th Milestone",
+      "description": "Finish 50 Full Workout",
+      "id": 5,
+      "_achieved": false
+    }
+  ],
+  "silver": [
+    {
+      "title": "Piece of Cake",
+      "description": "complete 10 Exercises",
+      "id": 1,
+      "_achieved": false
+    },
+    {
+      "title": "Any one can do this",
+      "description": "Complete 30 Exercises",
+      "id": 2,
+      "_achieved": false
+    },
+    {
+      "title": "The Big 5 0",
+      "description": "Complete 50 Exercises",
+      "id": 3,
+      "_achieved": false
+    }
+  ],
+  "bronze": [
+    {
+      "title": "I Need More",
+      "description": "Do 1 Exercise",
+      "id": 1,
+      "_achieved": false
+    },
+    {
+      "title": "Novice",
+      "description": "Create Your First Workout",
+      "id": 2,
+      "_achieved": false
+    },
+    {
+      "title": "Noticed",
+      "description": "Gain A Follower",
+      "id": 3,
+      "_achieved": false
+    },
+    {
+      "title": "I Liked That",
+      "description": "Like A Workout Plan",
+      "id": 4,
+      "_achieved": false
+    }
+  ]
+}
+
+
+
