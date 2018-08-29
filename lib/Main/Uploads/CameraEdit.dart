@@ -569,7 +569,7 @@ class CameraEditState extends State<CameraEdit> with TickerProviderStateMixin {
     imageFile = new File(widget.url);
     decodeImg();
 
-    src = img.Image(20,20);
+    src = img.Image(20, 20);
     state = AppState.free;
     loadFilters();
   }
@@ -587,18 +587,16 @@ class CameraEditState extends State<CameraEdit> with TickerProviderStateMixin {
     'Pixelate'
   ];
 
-  Future<Null> decodeImg()async
+  Future<Null> decodeImg() async
   {
-    img.Image srcs= img.decodeJpg(imageFile.readAsBytesSync());
+    img.Image srcs = img.decodeJpg(imageFile.readAsBytesSync());
     setState(() {
-      src=srcs;
+      src = srcs;
     });
-
   }
 
 
-  loadFilters()
-  {
+  loadFilters() {
     img.Image gsimage = img.grayscale(src);
     img.Image spimage = img.sepia(src);
     img.Image bimage = img.brightness(src, 100);

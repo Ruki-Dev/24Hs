@@ -612,7 +612,7 @@ class CameraState extends State<CameraUpload> with TickerProviderStateMixin {
     final Directory extDir = await getApplicationDocumentsDirectory();
     final String dirPath = '${extDir.path}/Pictures/24Hours';
     await new Directory(dirPath).create(recursive: true);
-    final String filePath = '$dirPath/${timestamp()}.png';
+    final String filePath = '$dirPath/${timestamp()}.jpg';
 
     if (controller.value.isTakingPicture) {
       // A capture is already pending, do nothing.
