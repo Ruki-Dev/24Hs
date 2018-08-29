@@ -578,7 +578,7 @@ class CameraEditState extends State<CameraEdit> with TickerProviderStateMixin {
   void dispose() {}
   img.Image src;
 
-  List<File> filefilters = List<File>();
+  List<File> filefilters = List<File>(); //
   List<String> filtername = [
     'BBC',
     'Sepia',
