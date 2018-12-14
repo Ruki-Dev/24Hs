@@ -17,34 +17,34 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.0
-  font_awesome: ^4.7.0
-  font_awesome_flutter: ^7.0.0
-  http: ^0.11.3+16
-  image: ^2.0.3
-  intl: ^0.15.6
-  location: ^1.3.4
-  image_picker: ^0.4.5
-  spritewidget: 0.9.15
-  queries: ^0.0.15
-  flutter_flux: ^4.0.1
-  firebase_auth: ^0.5.11
-  firebase_storage: ^1.0.0
-  firebase_database: ^1.0.1
-  polygon_clipper: ^1.0.0
-  carousel: ^0.1.0
-  emoji: ^1.1.2
-  path_provider: ^0.4.1
-  shimmer: 0.0.4
+  cupertino_icons:
+  font_awesome:
+  font_awesome_flutter:
+  http:
+  image:
+  intl:
+  location:
+  image_picker:
+  spritewidget:
+  queries:
+  flutter_flux:
+  firebase_auth:
+  firebase_storage:
+  firebase_database:
+  polygon_clipper:
+  carousel:
+  emoji:
+  path_provider:
+  shimmer:
   json_annotation:
-  simple_coverflow: ^0.0.6
-  sensors: ^0.3.1
-  timeago: ^1.2.7
-  share: ^0.5.2
-  platform: ^2.0.0
-  meta: ^1.0.5
-  fluttie: ^0.2.3
-  uni_links: ^0.1.1
+  simple_coverflow:
+  sensors:
+  timeago:
+  share:
+  platform:
+  meta:
+  fluttie:
+  uni_links:
   firebase_dynamic_links:
   video_player:
   connectivity:
@@ -58,10 +58,11 @@ dependencies:
   quick_actions:
   camera:
   image_cropper:
-  lamp:
   flutter_image:
   photo_view:
-  flutter_colorpicker: ^0.0.7
+  fluttery:
+  flutter_colorpicker:
+  lamp:
 
 
 
@@ -220,9 +221,17 @@ flutter:
     - images/man_work.png
     - images/man_work1.png
     - images/strong_man.png
+    - images/runner.png
+    - assets/flame.gif
     - GymJson/Awards.json
     - ajax-loader.gif
     - big_circleLoader.gif
+    - assets/food.gif
+    - assets/food2.gif
+    - assets/sport.gif
+    - assets/glossary.gif
+    - assets/yoga.gif
+    - assets/wrkout.gif
     #     ####  #####  #####  #   ######
     #     #  #    #      #    #   ####
     ####  ####    #      #    #   ###### All Lottie Animation assets Here
@@ -287,6 +296,16 @@ flutter:
     - assets/ic_mg/ic_quads.png
     - assets/ic_mg/ic_glutes.png
     - assets/ic_mg/ic_calves.png
+
+    # Gym images
+    - images/gym.jpg
+    - images/gym.png
+    - images/gym1.jpg
+    - images/gym2.jpg
+    - images/gym3.jpg
+    - images/gym4.jpg
+    - images/gym5.jpg
+
 
 
 

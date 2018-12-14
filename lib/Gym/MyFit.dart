@@ -16,11 +16,13 @@ import 'package:twenty_four_hours/Authentication/Auth_Model/Register.dart';
 import 'package:twenty_four_hours/Gym/Awards/BronzeDialog.dart';
 import 'package:twenty_four_hours/Gym/Awards/GoldDialog.dart';
 import 'package:twenty_four_hours/Gym/Awards/SilverDialog.dart';
+import 'package:twenty_four_hours/Gym/Contribute/Main.dart';
 import 'package:twenty_four_hours/Gym/Models/Achievements.dart';
 import 'package:twenty_four_hours/Gym/Models/Award.dart';
 import 'package:twenty_four_hours/Gym/Models/Follows.dart';
 import 'package:twenty_four_hours/Gym/Models/Profile.dart';
 import 'package:twenty_four_hours/Gym/ProfilePage/homePage.dart';
+import 'package:twenty_four_hours/Gym/Workout/Main.dart';
 import 'package:twenty_four_hours/Widget_Assets/AwardsDialog.dart';
 import 'package:twenty_four_hours/Widget_Assets/Following.dart';
 import 'package:twenty_four_hours/Widget_Assets/FollowingDialog.dart';
@@ -44,10 +46,10 @@ class MyfitWidget extends StatelessWidget {
 
   MyfitWidget(
       {this.onPressed,
-      this.profile,
-      this.changeWeight,
-      this.currentWeight: 120.0,
-      this.weightGoal: 100.0});
+        this.profile,
+        this.changeWeight,
+        this.currentWeight: 120.0,
+        this.weightGoal: 100.0});
 
   Widget testBGCarousel = new Container(
     child: new Carousel(
@@ -59,11 +61,11 @@ class MyfitWidget extends StatelessWidget {
       ]
           .map(
             (bgImg) => new Image(
-                image: bgImg,
-                fit: BoxFit.cover,
-                color: Colors.black12,
-                colorBlendMode: BlendMode.colorBurn),
-          )
+            image: bgImg,
+            fit: BoxFit.cover,
+            color: Colors.black12,
+            colorBlendMode: BlendMode.colorBurn),
+      )
           .toList(),
       displayDuration: const Duration(seconds: 1),
     ),
@@ -106,7 +108,7 @@ class MyfitWidget extends StatelessWidget {
         children: <Widget>[
           new FloatingActionButton(
               heroTag: null,
-              onPressed: null,
+              onPressed: ()=>_openWorkout(context),
               child: new Icon(FontAwesomeIcons.dumbbell),
               foregroundColor: Colors.white,
               backgroundColor: Colors.red),
@@ -146,7 +148,9 @@ class MyfitWidget extends StatelessWidget {
         children: <Widget>[
           new FloatingActionButton(
             heroTag: null,
-            onPressed: () {},
+            onPressed: () {
+              _openContribute(context);
+            },
             child: new Icon(Icons.control_point_duplicate),
             foregroundColor: Colors.white70,
             backgroundColor: Colors.midnightTextPrimary,
@@ -318,66 +322,84 @@ class MyfitWidget extends StatelessWidget {
 
     return Scaffold(
         body: new CustomScrollView(slivers: <Widget>[
-      new SliverAppBar(
-        expandedHeight: 256.0,
-        pinned: true,
-        floating: false,
-        snap: false,
-        actions: <Widget>[],
-        flexibleSpace: new FlexibleSpaceBar(
-            title: new Row(
-              children: <Widget>[],
-            ),
-            background: new Stack(fit: StackFit.expand, children: <Widget>[
-              /*   new PageView(
+          new SliverAppBar(
+            expandedHeight: 256.0,
+            pinned: true,
+            floating: false,
+            snap: false,
+            actions: <Widget>[],
+            flexibleSpace: new FlexibleSpaceBar(
+                title: new Row(
+                  children: <Widget>[],
+                ),
+                background: new Stack(fit: StackFit.expand, children: <Widget>[
+                  /*   new PageView(
                   children: [testBGCarousel],
                 ),*/
-              new Image(
-                  image: AssetImage(_randomPic()),
-                  fit: BoxFit.cover,
-                  color: Colors.black12,
-                  colorBlendMode: BlendMode.colorBurn),
-              const DecoratedBox(
-                decoration: const BoxDecoration(
-                  gradient: const LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: const <Color>[Colors.red, Colors.black12],
+                  new Image(
+                      image: AssetImage(_randomPic()),
+                      fit: BoxFit.cover,
+                      color: Colors.black12,
+                      colorBlendMode: BlendMode.colorBurn),
+                  const DecoratedBox(
+                    decoration: const BoxDecoration(
+                      gradient: const LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: const <Color>[Colors.red, Colors.black12],
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              _Header(
-                profile: profile,
-                context: context,
-                onPressed: onPressed,
-                profileImage: new ProfileImage(
-                  profile.user.profile_pic_url.isEmpty,
-                  true,
-                  shape: BoxShape.circle,
-                  fill: _nameToColor(profile.user.username),
-                  color: _nameToColor(profile.user.username),
-                  height: 70.0,
-                  width: 70.0,
-                  initials: profile.user.username.substring(0, 1).toUpperCase(),
-                  image: new NetworkImage(profile.user.profile_pic_url),
-                ),
-                achievementCount: 123,
-                gold: new Achievements('gold', 12),
-                silver: new Achievements('silver', 300),
-                bronze: new Achievements('bronze', 1000),
-                weightGoal: weightGoal,
-                currentWeight: currentWeight,
-                following: new Following(profile: profile),
-                followers: new Followers(
-                  profile: profile,
-                ),
-              ),
-            ])),
-      ),
-      new SliverList(delegate: new SliverChildListDelegate(<Widget>[body()]))
-    ]));
+                  _Header(
+                    profile: profile,
+                    context: context,
+                    onPressed: onPressed,
+                    profileImage: new ProfileImage(
+                      profile.user.profile_pic_url.isEmpty,
+                      true,
+                      shape: BoxShape.circle,
+                      fill: _nameToColor(profile.user.username),
+                      color: _nameToColor(profile.user.username),
+                      height: 70.0,
+                      width: 70.0,
+                      initials: profile.user.username.substring(0, 1).toUpperCase(),
+                      image: new NetworkImage(profile.user.profile_pic_url),
+                    ),
+                    achievementCount: 123,
+                    gold: new Achievements('gold', 12),
+                    silver: new Achievements('silver', 300),
+                    bronze: new Achievements('bronze', 1000),
+                    weightGoal: weightGoal,
+                    currentWeight: currentWeight,
+                    following: new Following(profile: profile),
+                    followers: new Followers(
+                      profile: profile,
+                    ),
+                  ),
+                ])),
+          ),
+          new SliverList(delegate: new SliverChildListDelegate(<Widget>[body()]))
+        ]));
   }
 
+  Future _openContribute(BuildContext context) async {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new ContributeMain(
+            profile: profile,
+          );
+        },
+        fullscreenDialog: true));
+  }
+  Future _openWorkout(BuildContext context) async {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+        builder: (BuildContext context) {
+          return new WorkoutMain(
+            profile: profile,
+          );
+        },
+        fullscreenDialog: true));
+  }
   Future _openProfile(BuildContext context) async {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
@@ -460,17 +482,17 @@ class _Header extends StatelessWidget {
 
   _Header(
       {this.profile,
-      this.profileImage,
-      this.onPressed,
-      this.context,
-      this.bronze,
-      this.gold,
-      this.silver,
-      this.achievementCount,
-      this.weightGoal = 122.0,
-      this.currentWeight = 120.0,
-      this.following,
-      this.followers});
+        this.profileImage,
+        this.onPressed,
+        this.context,
+        this.bronze,
+        this.gold,
+        this.silver,
+        this.achievementCount,
+        this.weightGoal = 122.0,
+        this.currentWeight = 120.0,
+        this.following,
+        this.followers});
 
   Future initFile() async {
     String jsonAwards = await _loadAwardAssets();
@@ -528,7 +550,7 @@ class _Header extends StatelessWidget {
                                 onPressed: _openSilverDialog,
                                 icon: new Icon(FontAwesomeIcons.trophy,
                                     color:
-                                        new Color.fromRGBO(191, 191, 191, 1.0),
+                                    new Color.fromRGBO(191, 191, 191, 1.0),
                                     size: 25.0)),
                             new Transform.translate(
                               offset: new Offset(2.0, 1.0),
@@ -536,7 +558,7 @@ class _Header extends StatelessWidget {
                                 getValue(profile.awards.totalSilver.amount),
                                 style: new TextStyle(
                                     color:
-                                        new Color.fromRGBO(191, 191, 191, 1.0),
+                                    new Color.fromRGBO(191, 191, 191, 1.0),
                                     fontFamily: 'Jua'),
                               ),
                             ),
@@ -548,7 +570,7 @@ class _Header extends StatelessWidget {
                                 onPressed: _openBronzeDialog,
                                 icon: new Icon(FontAwesomeIcons.trophy,
                                     color:
-                                        new Color.fromRGBO(191, 128, 64, 1.0),
+                                    new Color.fromRGBO(191, 128, 64, 1.0),
                                     size: 25.0)),
                             new Transform.translate(
                               offset: new Offset(2.0, 1.0),
@@ -556,7 +578,7 @@ class _Header extends StatelessWidget {
                                 getValue(profile.awards.totalBronze.amount),
                                 style: new TextStyle(
                                     color:
-                                        new Color.fromRGBO(191, 128, 64, 1.0),
+                                    new Color.fromRGBO(191, 128, 64, 1.0),
                                     fontFamily: 'Jua'),
                               ),
                             ),
@@ -640,6 +662,7 @@ class _Header extends StatelessWidget {
   var silverAwards = [];
   var bronzeAwards = [];
 
+
   Future _openGoldDialog() async {
     Navigator.of(context).push(new MaterialPageRoute<Null>(
         builder: (BuildContext context) {
@@ -684,14 +707,14 @@ class Hexagon extends StatelessWidget {
 
   Hexagon(
       {this.child,
-      this.onPressed,
-      this.offset: const Offset(10.0, 20.0),
-      this.size: const Size(120.0, 120.0),
-      this.shadowColor: Colors.black45,
-      this.borderRadius: 5.0,
-      this.elevation = 10.0,
-      this.side = 6,
-      this.decoration});
+        this.onPressed,
+        this.offset: const Offset(10.0, 20.0),
+        this.size: const Size(120.0, 120.0),
+        this.shadowColor: Colors.black45,
+        this.borderRadius: 5.0,
+        this.elevation = 10.0,
+        this.side = 6,
+        this.decoration});
 
   @override
   Widget build(BuildContext context) {

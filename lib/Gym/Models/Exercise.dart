@@ -2,39 +2,39 @@ class Exercise {
   String _name = '';
   String _desc = '';
   String _tips = '';
-  MuscleGroup _muscle = new MuscleGroup();
+  List<String> _muscles = [];
   String _imgurl = '';
   String _gifurl = '';
   String _level = '';
   int _sets = 0;
   int _reps = 0;
   double _weight = 0.0;
-  Category _category = new Category();
-  Duration _time = new Duration();
+  String _category = '';
+  Duration _time ;
   Duration _rest = new Duration();
   Duration _rest_per_set = new Duration();
   String _tempo = '';
 
   Exercise(
       [this._name,
-      this._desc,
-      this._tips,
-      this._muscle,
-      this._imgurl,
-      this._gifurl,
-      this._level,
-      this._sets,
-      this._reps,
-      this._weight,
-      this._category,
-      this._time,
-      this._rest,
-      this._rest_per_set,
-      this._tempo]);
+        this._desc,
+        this._tips,
+        this._muscles,
+        this._imgurl,
+        this._gifurl,
+        this._level,
+        this._sets,
+        this._reps,
+        this._weight,
+        this._category,
+        this._time,
+        this._rest,
+        this._rest_per_set,
+        this._tempo]);
 
   @override
   String toString() {
-    return 'Exercise{_name: $_name, _desc: $_desc, _tips: $_tips, _muscle: $_muscle, _imgurl: $_imgurl, _gifurl: $_gifurl, _level: $_level, _sets: $_sets, _reps: $_reps, _weight: $_weight, _category: $_category, _time: $_time, _rest: $_rest, _rest_per_set: $_rest_per_set, _tempo: $_tempo}';
+    return 'Exercise{_name: $_name, _desc: $_desc, _tips: $_tips, _muscle: $_muscles, _imgurl: $_imgurl, _gifurl: $_gifurl, _level: $_level, _sets: $_sets, _reps: $_reps, _weight: $_weight, _category: $_category, _time: $_time, _rest: $_rest, _rest_per_set: $_rest_per_set, _tempo: $_tempo}';
   }
 
   String get tempo => _tempo;
@@ -61,9 +61,9 @@ class Exercise {
     _time = value;
   }
 
-  Category get category => _category;
+  String get category => _category;
 
-  set category(Category value) {
+  set category(String value) {
     _category = value;
   }
 
@@ -103,10 +103,10 @@ class Exercise {
     _imgurl = value;
   }
 
-  MuscleGroup get muscle => _muscle;
+  List<String> get muscles => _muscles;
 
-  set muscle(MuscleGroup value) {
-    _muscle = value;
+  set muscles(List<String> value) {
+    _muscles = value;
   }
 
   String get tips => _tips;
@@ -146,7 +146,8 @@ class Category {
 }
 
 class MuscleGroup {
-  final List<String> muscleGroups = [
+
+  static List<String> muscleGroups = [
     'Chest',
     'Core',
     'Biceps',
@@ -156,18 +157,76 @@ class MuscleGroup {
     'Traps',
     'Glutes',
     'Quads',
-    'Calves'
+    'Calves',
+    'Cardio'
   ];
-  final List<String> muscleGroups_ic = [
-    'ic_chest.png',
-    'ic_core.png',
-    'ic_biceps.png',
-    'ic_triceps.png',
-    'ic_shoulder.png',
-    'ic_back.png',
-    'ic_traps.png',
-    'ic_glutes.png',
-    'ic_quads.png',
-    'ic_calves.png'
+  static List<String> muscleGroups_ic = [
+    'assets/ic_mg/ic_chest.png',
+    'assets/ic_mg/ic_core.png',
+    'assets/ic_mg/ic_biceps.png',
+    'assets/ic_mg/ic_triceps.png',
+    'assets/ic_mg/ic_shoulder.png',
+    'assets/ic_mg/ic_back.png',
+    'assets/ic_mg/ic_traps.png',
+    'assets/ic_mg/ic_glutes.png',
+    'assets/ic_mg/ic_quads.png',
+    'assets/ic_mg/ic_calves.png',
+    'images/runner.png'
   ];
+
+  static translateImgtoName(String img) {
+    switch (img.toLowerCase()) {
+      case 'assets/ic_mg/ic_chest.png' :
+        return 'Chest';
+      case'assets/ic_mg/ic_core.png' :
+        return 'Core';
+      case 'assets/ic_mg/ic_biceps.png' :
+        return 'Biceps';
+      case 'assets/ic_mg/ic_triceps.png' :
+        return 'Triceps';
+      case 'assets/ic_mg/ic_shoulder.png' :
+        return 'Shoulder';
+      case 'assets/ic_mg/ic_back.png' :
+        return 'Back';
+      case 'assets/ic_mg/ic_traps.png' :
+        return 'Traps';
+      case 'assets/ic_mg/ic_glutes.png' :
+        return 'Glutes';
+      case 'assets/ic_mg/ic_quads.png' :
+        return 'Quads';
+      case 'assets/ic_mg/ic_calves.png' :
+        return 'Calves';
+
+      case 'images/runner.png' :
+        return 'Cardio';
+    }
+  }
+  static translateNametoImg(String name) {
+    switch (name.toLowerCase()) {
+      case 'Chest' :
+        return 'assets/ic_mg/ic_chest.png';
+      case'Core' :
+        return 'assets/ic_mg/ic_core.png';
+      case 'Biceps' :
+        return 'assets/ic_mg/ic_biceps.png';
+      case 'Triceps' :
+        return 'assets/ic_mg/ic_triceps.png';
+      case 'Shoulder' :
+        return 'assets/ic_mg/ic_shoulder.png';
+      case 'Back' :
+        return 'assets/ic_mg/ic_back.png';
+      case 'Traps' :
+        return 'assets/ic_mg/ic_traps.png';
+      case 'Glutes' :
+        return 'assets/ic_mg/ic_glutes.png';
+      case 'Quads' :
+        return 'assets/ic_mg/ic_quads.png';
+      case 'Calves' :
+        return 'assets/ic_mg/ic_calves.png';
+
+      case 'Cardio' :
+        return 'images/runner.png';
+      default: return 'images/runner.png';
+    }
+  }
 }
