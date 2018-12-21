@@ -63,6 +63,9 @@ dependencies:
   fluttery:
   flutter_colorpicker:
   lamp:
+  carousel_slider:
+  material_search:
+
 
 
 
@@ -86,6 +89,14 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   fonts:
+    - family: Aclonica
+      fonts:
+        - asset: fonts/Aclonica/Aclonica-Regular.ttf
+          weight: 400
+    - family: Acme
+      fonts:
+        - asset: fonts/Acme-Regular.ttf
+          weight: 400
     - family: Anton
       fonts:
         - asset: fonts/Anton-Regular.ttf

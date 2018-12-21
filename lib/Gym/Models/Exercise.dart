@@ -202,7 +202,7 @@ class MuscleGroup {
     }
   }
   static translateNametoImg(String name) {
-    switch (name.toLowerCase()) {
+    switch (name.toLowerCase().trim()) {
       case 'Chest' :
         return 'assets/ic_mg/ic_chest.png';
       case'Core' :

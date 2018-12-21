@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -5,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:twenty_four_hours/Gym/Models/Exercise.dart';
 import 'package:twenty_four_hours/Widget_Assets/ImageIcons.dart';
 import 'package:twenty_four_hours/Widget_Assets/LevelIcon.dart';
+import 'package:twenty_four_hours/Widget_Assets/auto_size_text.dart';
 
 class ExerciseBubble extends StatelessWidget
 {
@@ -12,13 +15,13 @@ class ExerciseBubble extends StatelessWidget
    Color bcolor;
    double width;//2
    double size;
-   ExerciseBubble(this._exercise,{this.bcolor:Colors.white,this.width=2.5,this.size=400.0});
+   ExerciseBubble(this._exercise,{this.bcolor:Colors.white,this.width=1.0,this.size=50.0});
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     initializeDateFormatting();
     return InkWell(
-      onTap: (){},
+      onLongPress: ()=>_workoutInfo(context),
       child: new Container(
         width: size,
       height: size,
@@ -46,15 +49,17 @@ class ExerciseBubble extends StatelessWidget
   List<Widget> _elements()
    {
      return [
-       _backgroundImage(),
-      new Align(
-            alignment: Alignment.topRight,
-            child:_level()
-        ),
-      /*  new Align(
-         alignment: Alignment.center,
-         child:  about(),
-       )*/
+      Positioned(
+          child: _backgroundImage()),
+     Positioned(
+
+         child:new Column(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: <Widget>[_level(),about()],
+
+
+        )),
+
      ];
    }
 
@@ -62,19 +67,28 @@ class ExerciseBubble extends StatelessWidget
     return Container(
         width: size/2,
         height: size/2,
+
+
+
         decoration: BoxDecoration(
-            shape: BoxShape.circle,
+          color: Colors.red,
+           shape: BoxShape.circle,
+            //borderRadius: BorderRadius.circular(8.0),
+          //  color: Colors.white,
             border: new Border.all(
               color:bcolor,
               width:width,
             ),
-        image:DecorationImage(
-          fit: BoxFit.contain,
-        repeat: ImageRepeat.noRepeat,
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            repeat: ImageRepeat.noRepeat,
 
-        image:_exercise.imgurl!=''?new NetworkImage(_exercise.imgurl):new AssetImage('images/strong_man.png'),
+            image:_exercise.imgurl!=''?new NetworkImage(_exercise.imgurl):new AssetImage('images/strong_man.png'),
 
-        )));
+
+          )
+
+        ));
   }
   Widget _level()
   {
@@ -83,24 +97,33 @@ class ExerciseBubble extends StatelessWidget
     List<Widget> icns=new List();
     for(String m in _exercise.muscles)
     {
-      print(m);
-          }
-    icns.add(ImageIconsData.getIconbykeyword("Chest",size:this.size*0.08,color: Colors.black45));
+      print(m); icns.add(ImageIconsData.getIconbykeyword(m,size:this.size*0.08,color: Colors.amber));
 
-    Row  mgIcons=new Row(
+    }
+
+    Wrap  mgIcons=new Wrap(
       children:icns
     );
     return Container(
+        alignment: Alignment.center,
         width: size,
+
         child:Wrap(
-        alignment: WrapAlignment.spaceEvenly,
-      direction: Axis.horizontal,
+         // alignment: WrapAlignment.center,
+       // mainAxisAlignment: MainAxisAlignment.center,
+          alignment: WrapAlignment.center,
+
+
+     // direction: Axis.horizontal,
         children: <Widget>[
 
 
-       LevelIcon(_exercise.level,ic_size: size*0.08,),
+       Padding(
+        padding: const EdgeInsets.all(2.0),
+        child:LevelIcon(_exercise.level,ic_size: size*0.16,),
+       ),
 
-        ImageIconsData.getIconbykeyword("chest",size:this.size*0.08,color: Colors.midnightTextPrimary)
+       mgIcons,
       ],
     ));
   }
@@ -117,9 +140,12 @@ class ExerciseBubble extends StatelessWidget
   }
 
   Widget about() {
-    Text name=new Text(
+    AutoSizeText name=new AutoSizeText(
       _exercise!=''?_exercise.name:'unknown',
-      style: styler(size: 20.0,bold:true),
+      maxLines:1,
+      maxFontSize:size*0.08 ,
+      minFontSize: 0.2,
+      style: styler(size: size*0.08,bold:true),
 
     );
     TextStyle antributestyler=styler(
@@ -135,7 +161,7 @@ class ExerciseBubble extends StatelessWidget
            decoration: new BoxDecoration(
              color: Colors.black38,
              borderRadius:new BorderRadius.circular(6.0),
-             border: Border.all(color: bcolor,width: 3.0)
+             border: Border.all(color: bcolor,width: width)
 
            ),
        child:Column(
@@ -178,7 +204,37 @@ class ExerciseBubble extends StatelessWidget
   }
 
 
+   Future<Null> _workoutInfo(context) async {
+     return showDialog(
+         context: context,
+         barrierDismissible: true,
+         builder: (BuildContext context) {
+           return new AlertDialog(
+             title: new Text(_exercise.name),
+             contentPadding: EdgeInsets.zero,
+             content: new ListView(
+                   shrinkWrap: true,
+                     children: <Widget>[
+                       Container(
+                         decoration: BoxDecoration(
+                           image: DecorationImage(
+                             fit: BoxFit.cover,
+                             image: _exercise.imgurl!=null?NetworkImage(_exercise.imgurl):AssetImage('assets/wrkout.gif'),
+                           )
+                         ),
+                       ),
+
+                     ],
+                 )
+              // )
+
+           );
+         });
+   }
+
+
 }
+
 class CustomRect extends CustomClipper<Rect>{
   @override
   Rect getClip(Size size) {

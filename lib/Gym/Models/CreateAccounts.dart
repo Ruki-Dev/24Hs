@@ -2,18 +2,20 @@ import 'package:twenty_four_hours/Authentication/Auth_Model/Register.dart';
 import 'package:twenty_four_hours/Gym/Models/Award.dart';
 import 'package:twenty_four_hours/Gym/Models/Cinema.dart';
 import 'package:twenty_four_hours/Gym/Models/Comments.dart';
+import 'package:twenty_four_hours/Gym/Models/Exercise.dart';
 import 'package:twenty_four_hours/Gym/Models/Follows.dart';
 import 'package:twenty_four_hours/Gym/Models/Gallery.dart';
 import 'package:twenty_four_hours/Gym/Models/Picture.dart';
 import 'package:twenty_four_hours/Gym/Models/Profile.dart';
 import 'package:twenty_four_hours/Gym/Models/Videos.dart';
+import 'package:twenty_four_hours/Gym/Models/Workout.dart';
 import 'package:twenty_four_hours/Main/Friends.dart';
 
 class CreateAccounts {
   Register ol, jc, anika, teyana, tony;
   String olID, jcID, anikaID, teyanaID, TonyID;
   Award olAward, jcAward, anikaAward, teyanaAWard, TonyIAward;
-
+  static bool isOllieCreated=false;
   CreateAccounts() {
     ol = new Register(
         "Ollie",
@@ -154,7 +156,8 @@ class CreateAccounts {
   }
 
   Profile ollie() {
-    return new Profile(
+    isOllieCreated=true;
+    Profile p_ollie=new Profile(
         ol,
         olID,
         new Follows(true, [jcole(), Teyana()], []),
@@ -174,7 +177,484 @@ class CreateAccounts {
               'Unknown',
               ''),
         ], 'My Stuff'),
-        new Friends([jcole(), Teyana()], [], [], [], []));
+        new Friends([jcole(), Teyana()], [], [], [], []),null,
+
+    );
+    p_ollie.completedWorkouts=[
+      new Workout(
+          [
+            new Exercise(
+                "Incline Bench Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://www.burnthefatinnercircle.com/members/images/1669.jpg",
+                "https://media.giphy.com/media/nMawskG5oPP5S/source.gif",
+                "intermediate",
+                4,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Decline Bench Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://munfitnessblog.com/wp-content/uploads/2007/10/decline-bench-press-with-barbell.jpg",
+                "https://garagegymplanner.com/wp-content/uploads/2017/02/Decline-Bench-Press.gif",
+                "Advanced",
+                4,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Chest Dips",
+                "",
+                "",
+                ["Chest","triceps","shoulder"],
+                "http://munfitnessblog.com/wp-content/uploads/2007/10/decline-bench-press-with-barbell.jpg",
+                "http://assets.menshealth.co.uk/main/assets/dips.gif?mtime=1457699683",
+                "Advanced",
+                3,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Flat Dumbbel Chest Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://www.burnthefatinnercircle.com/members/images/1584.jpg",
+                "http://assets.menshealth.co.uk/main/assets/bench-press-dumbell.gif?mtime=1447764573",
+                "Advanced",
+                3,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Push ups",
+                "",
+                "",
+                ["Chest","shoulder","triceps","biceps"],
+                "https://www.quickanddirtytips.com/sites/default/files/styles/insert_large/public/images/3936/pushups.jpg?itok=PAD7-lK6",
+                "https://fitnessyards.com/wp-content/uploads/2018/06/push-up-gif-8.gif",
+                "Beginner",
+                3,
+                12,
+                0.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Dumbbell Chest Flye",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "https://cdn2.coachmag.co.uk/sites/coachmag/files/styles/16x9_480/public/2016/07/dumbbell-flye.jpg?itok=0oMKG8Eb&timestamp=1468838988",
+                "https://i1.wp.com/www.healthkartclub.com/blog/wp-content/uploads/2017/02/incline-dumbbell-flyes.gif?resize=500%2C500",
+                "Beginner",
+                3,
+                12,
+                10.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+
+
+          ],
+          "Chest Domination Day",
+        "1",
+          "http://40.media.tumblr.com/tumblr_mab3m5dW9S1rwoe98o2_1280.jpg",
+          "Advanced",
+          p_ollie,
+        "Get ready for a killer chest workout garranteed to really get your chest pumping",
+        6,
+        superset: [
+          Superset(
+            new Exercise(
+                "Machine Chest Press",
+                "",
+                "",
+                ["Chest","triceps"],
+                "https://cdn.shopify.com/s/files/1/0840/6691/products/xpload_vertical-chest-p3vc_1024x1024.png?v=1454934324",
+                "https://s3.amazonaws.com/images.myfit.ca/cache/images/verticalpress_002.gif",
+                "Advanced",
+                3,
+                12,
+                10.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Machine Chest Flye",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "https://bodybuilding-wizard.com/wp-content/uploads/2014/12/machine-fly-exercise.jpg",
+                "http://fitnessyards.com/wp-content/uploads/2018/07/BUTTERFLY-CHEST.gif",
+                "Advanced",
+                3,
+                12,
+                10.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+
+
+          ),
+        ]
+
+      ),
+      new Workout(
+          [
+            new Exercise(
+                "Incline Bench Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://www.burnthefatinnercircle.com/members/images/1669.jpg",
+                "https://media.giphy.com/media/nMawskG5oPP5S/source.gif",
+                "intermediate",
+                4,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Decline Bench Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://munfitnessblog.com/wp-content/uploads/2007/10/decline-bench-press-with-barbell.jpg",
+                "https://garagegymplanner.com/wp-content/uploads/2017/02/Decline-Bench-Press.gif",
+                "Advanced",
+                4,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Chest Dips",
+                "",
+                "",
+                ["Chest","triceps","shoulder"],
+                "http://munfitnessblog.com/wp-content/uploads/2007/10/decline-bench-press-with-barbell.jpg",
+                "http://assets.menshealth.co.uk/main/assets/dips.gif?mtime=1457699683",
+                "Advanced",
+                3,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Flat Dumbbel Chest Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://www.burnthefatinnercircle.com/members/images/1584.jpg",
+                "http://assets.menshealth.co.uk/main/assets/bench-press-dumbell.gif?mtime=1447764573",
+                "Advanced",
+                3,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Push ups",
+                "",
+                "",
+                ["Chest","shoulder","triceps","biceps"],
+                "https://www.quickanddirtytips.com/sites/default/files/styles/insert_large/public/images/3936/pushups.jpg?itok=PAD7-lK6",
+                "https://fitnessyards.com/wp-content/uploads/2018/06/push-up-gif-8.gif",
+                "Beginner",
+                3,
+                12,
+                0.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Dumbbell Chest Flye",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "https://cdn2.coachmag.co.uk/sites/coachmag/files/styles/16x9_480/public/2016/07/dumbbell-flye.jpg?itok=0oMKG8Eb&timestamp=1468838988",
+                "https://i1.wp.com/www.healthkartclub.com/blog/wp-content/uploads/2017/02/incline-dumbbell-flyes.gif?resize=500%2C500",
+                "Beginner",
+                3,
+                12,
+                10.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+
+
+          ],
+          "Chest Domination Day",
+          "1",
+          "http://40.media.tumblr.com/tumblr_mab3m5dW9S1rwoe98o2_1280.jpg",
+          "Advanced",
+          p_ollie,
+          "Get ready for a killer chest workout garranteed to really get your chest pumping",
+          6,
+          superset: [
+            Superset(
+              new Exercise(
+                  "Machine Chest Press",
+                  "",
+                  "",
+                  ["Chest","triceps"],
+                  "https://cdn.shopify.com/s/files/1/0840/6691/products/xpload_vertical-chest-p3vc_1024x1024.png?v=1454934324",
+                  "https://s3.amazonaws.com/images.myfit.ca/cache/images/verticalpress_002.gif",
+                  "Advanced",
+                  3,
+                  12,
+                  10.0,
+                  new Category().category[0],
+                  null,
+                  new Duration(seconds:30),
+                  null,
+                  ''
+              ),
+              new Exercise(
+                  "Machine Chest Flye",
+                  "",
+                  "",
+                  ["Chest","shoulder"],
+                  "https://bodybuilding-wizard.com/wp-content/uploads/2014/12/machine-fly-exercise.jpg",
+                  "http://fitnessyards.com/wp-content/uploads/2018/07/BUTTERFLY-CHEST.gif",
+                  "Advanced",
+                  3,
+                  12,
+                  10.0,
+                  new Category().category[0],
+                  null,
+                  new Duration(seconds:30),
+                  null,
+                  ''
+              ),
+
+
+            ),
+          ]
+
+      ),
+      new Workout(
+          [
+            new Exercise(
+                "Incline Bench Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://www.burnthefatinnercircle.com/members/images/1669.jpg",
+                "https://media.giphy.com/media/nMawskG5oPP5S/source.gif",
+                "intermediate",
+                4,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Decline Bench Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://munfitnessblog.com/wp-content/uploads/2007/10/decline-bench-press-with-barbell.jpg",
+                "https://garagegymplanner.com/wp-content/uploads/2017/02/Decline-Bench-Press.gif",
+                "Advanced",
+                4,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Chest Dips",
+                "",
+                "",
+                ["Chest","triceps","shoulder"],
+                "http://munfitnessblog.com/wp-content/uploads/2007/10/decline-bench-press-with-barbell.jpg",
+                "http://assets.menshealth.co.uk/main/assets/dips.gif?mtime=1457699683",
+                "Advanced",
+                3,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Flat Dumbbel Chest Press",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "http://www.burnthefatinnercircle.com/members/images/1584.jpg",
+                "http://assets.menshealth.co.uk/main/assets/bench-press-dumbell.gif?mtime=1447764573",
+                "Advanced",
+                3,
+                12,
+                30.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Push ups",
+                "",
+                "",
+                ["Chest","shoulder","triceps","biceps"],
+                "https://www.quickanddirtytips.com/sites/default/files/styles/insert_large/public/images/3936/pushups.jpg?itok=PAD7-lK6",
+                "https://fitnessyards.com/wp-content/uploads/2018/06/push-up-gif-8.gif",
+                "Beginner",
+                3,
+                12,
+                0.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+            new Exercise(
+                "Dumbbell Chest Flye",
+                "",
+                "",
+                ["Chest","shoulder"],
+                "https://cdn2.coachmag.co.uk/sites/coachmag/files/styles/16x9_480/public/2016/07/dumbbell-flye.jpg?itok=0oMKG8Eb&timestamp=1468838988",
+                "https://i1.wp.com/www.healthkartclub.com/blog/wp-content/uploads/2017/02/incline-dumbbell-flyes.gif?resize=500%2C500",
+                "Beginner",
+                3,
+                12,
+                10.0,
+                new Category().category[0],
+                null,
+                new Duration(seconds:30),
+                null,
+                ''
+            ),
+
+
+          ],
+          "Chest Domination Day",
+          "1",
+          "http://40.media.tumblr.com/tumblr_mab3m5dW9S1rwoe98o2_1280.jpg",
+          "Advanced",
+          p_ollie,
+          "Get ready for a killer chest workout garranteed to really get your chest pumping",
+          6,
+          superset: [
+            Superset(
+              new Exercise(
+                  "Machine Chest Press",
+                  "",
+                  "",
+                  ["Chest","triceps"],
+                  "https://cdn.shopify.com/s/files/1/0840/6691/products/xpload_vertical-chest-p3vc_1024x1024.png?v=1454934324",
+                  "https://s3.amazonaws.com/images.myfit.ca/cache/images/verticalpress_002.gif",
+                  "Advanced",
+                  3,
+                  12,
+                  10.0,
+                  new Category().category[0],
+                  null,
+                  new Duration(seconds:30),
+                  null,
+                  ''
+              ),
+              new Exercise(
+                  "Machine Chest Flye",
+                  "",
+                  "",
+                  ["Chest","shoulder"],
+                  "https://bodybuilding-wizard.com/wp-content/uploads/2014/12/machine-fly-exercise.jpg",
+                  "http://fitnessyards.com/wp-content/uploads/2018/07/BUTTERFLY-CHEST.gif",
+                  "Advanced",
+                  3,
+                  12,
+                  10.0,
+                  new Category().category[0],
+                  null,
+                  new Duration(seconds:30),
+                  null,
+                  ''
+              ),
+
+
+            ),
+          ]
+
+      ),
+
+    ];
+    p_ollie.workoutStats=new WoroutStats(averageKcal: 100.0,currentWeight: 120.0,favouriteMuscle: "Chest");
+    if(isOllieCreated)
+      return p_ollie;
+    return null;
   }
 
   Profile jcole() {

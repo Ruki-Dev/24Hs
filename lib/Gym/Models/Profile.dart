@@ -3,6 +3,9 @@ import 'package:twenty_four_hours/Gym/Models/Award.dart';
 import 'package:twenty_four_hours/Gym/Models/Cinema.dart';
 import 'package:twenty_four_hours/Gym/Models/Follows.dart';
 import 'package:twenty_four_hours/Gym/Models/Gallery.dart';
+import 'package:twenty_four_hours/Gym/Models/Workout.dart';
+import 'package:twenty_four_hours/Gym/Models/WorkoutPlans.dart';
+import 'package:twenty_four_hours/Gym/ProfilePage/MealPlans.dart';
 import 'package:twenty_four_hours/Main/Friends.dart';
 
 class Profile {
@@ -14,6 +17,16 @@ class Profile {
   Friends _friends;
   String _bio = 'Hey There!, Welcome to MyFit Profile';
   List<Gallery> savedPictures;
+  List<Workout>savedWorkouts=new List<Workout>();
+  List<WorkoutPlan>savedWorkoutPlans;
+  List<MealPlans>savedMealPlans;
+  List<Workout>completedWorkouts;
+  List<WorkoutPlan>completedWorkoutPlans;
+  WorkoutPlan currentWorkoutPlan;
+  WoroutStats workoutStats;
+
+
+
   Cinema cinema;
 
   Profile(
@@ -24,7 +37,8 @@ class Profile {
       this._bio,
       this.gallery,
       this._friends,
-      this.cinema]);
+      this.cinema,
+      this.savedWorkouts]){savedWorkouts=new List<Workout>();}
 
   Award get awards => _awards;
 
@@ -66,4 +80,14 @@ class Profile {
   String toString() {
     return 'Profile{_user: $_user, _follow: $_follow, _UID: $_UID, gallery: $gallery, _awards: $_awards, _friends: $_friends, _bio: $_bio, savedPictures: $savedPictures}';
   }
+}
+class WoroutStats{
+  double averageKcal;
+  double currentWeight;
+  String favouriteMuscle;
+  int strengthLvl;
+
+  WoroutStats({this.averageKcal=0.0, this.currentWeight=0.0, this.favouriteMuscle='',this.strengthLvl=0});
+
+
 }

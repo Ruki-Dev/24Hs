@@ -2,13 +2,20 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:polygon_clipper/polygon_path_drawer.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:twenty_four_hours/Gym/Models/Exercise.dart';
 import 'package:twenty_four_hours/Gym/Models/Profile.dart';
+import 'package:twenty_four_hours/Gym/Models/Workout.dart';
+import 'package:twenty_four_hours/Widget_Assets/CycleView.dart';
 import 'package:twenty_four_hours/Widget_Assets/ExerciseBubble.dart';
+import 'package:twenty_four_hours/Widget_Assets/Following.dart';
 import 'package:twenty_four_hours/Widget_Assets/HexagonDrawer.dart';
 import 'package:twenty_four_hours/Widget_Assets/ImageIcons.dart';
+import 'package:twenty_four_hours/Widget_Assets/WorkoutWidget.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:twenty_four_hours/Widget_Assets/auto_size_text.dart';
 
 class Completed extends StatefulWidget
 {
@@ -41,11 +48,26 @@ class CompletedState extends State<Completed>
   final TextStyle num_style2=new TextStyle(color: Colors.lightGreenAccent,fontFamily: "Exo",fontSize: 14.0);
   final TextStyle txt_style2=new TextStyle(color: Colors.green,fontFamily: "Kaushan",fontSize: 6.0);
 
+  bool playSlide=true;
+  List<Widget> completedWorkouts=new List<Widget>();
+  num slideSpeed=4;
+  int currentWrkout=0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    for(Workout w in profile.completedWorkouts)
+      {
+        
+        completedWorkouts.add(new WorkoutWidget(w,profile,color: Colors.transparent,));
+      }
     print("Starting complete");
     return new Scaffold(
+      appBar: new AppBar(
+        key:Key("completedAppbar"),
+        backgroundColor: Colors.green,
+        title: new Text("My Completed Workouts/Stats",style:new TextStyle(fontFamily: 'Exo')),
+      ) ,
       key: Key("CompletedWorkout"),
       body: new Stack(
         fit: StackFit.expand,
@@ -76,7 +98,7 @@ class CompletedState extends State<Completed>
                           baseColor: Colors.lightGreenAccent,
                           highlightColor: Colors.green.shade100,
                           period: Duration(seconds: 2),
-                          child: new Text("0",style: num_style,softWrap: true,),
+                          child: new AutoSizeText(FormatValue(profile.completedWorkouts.length).getValue(),style: num_style,softWrap: true,maxLines:1,maxFontSize: 40.0,minFontSize: 4.0,),
                             ),
                          new Text("Workouts Completed",style: txt_style,softWrap: true,),
                       Padding(padding: const EdgeInsets.all(6.0)),
@@ -109,7 +131,7 @@ class CompletedState extends State<Completed>
                               baseColor: Colors.midnightTextPrimary,
                               highlightColor: Colors.yellow.shade100,
                               period: Duration(seconds: 2),
-                              child: new Text("0Kcal",style: num_style2,softWrap: true,),
+                              child: new Text(new NumberFormat("###.##").format(profile.workoutStats.averageKcal)+"Kcal",style: num_style2,softWrap: true,),
                             ),
                             new Text("Total Kcal",style: txt_style2,softWrap: true,),
                             Padding(padding: const EdgeInsets.all(2.0)),
@@ -129,7 +151,7 @@ class CompletedState extends State<Completed>
                               baseColor: Colors.midnightTextPrimary,
                               highlightColor: Colors.yellow.shade100,
                               period: Duration(seconds: 2),
-                              child: new Text("0 Kg",style: num_style2,softWrap: true,),
+                              child: new Text(new NumberFormat("###.##").format(profile.workoutStats.currentWeight)+" Kg",style: num_style2,softWrap: true,),
                             ),
                             new Text("Avg Weight",style: txt_style2,softWrap: true,),
                             Padding(padding: const EdgeInsets.all(2.0)),
@@ -150,7 +172,7 @@ class CompletedState extends State<Completed>
                               highlightColor: Colors.yellow.shade100,
                               period: Duration(seconds: 2),
                               child:ImageIcon(
-                                AssetImage("assets/ic_mg/ic_chest.png"),
+                                AssetImage(MuscleGroup.translateNametoImg(profile.workoutStats.favouriteMuscle)),
                               )
                             ),
                             new Text("Favourite Muscle",style: txt_style2,softWrap: true,),
@@ -171,7 +193,7 @@ class CompletedState extends State<Completed>
                                 baseColor: Colors.midnightTextPrimary,
                                 highlightColor: Colors.yellow.shade100,
                                 period: Duration(seconds: 2),
-                                child: new Text("1k",style: num_style2,softWrap: true,),
+                                child: new Text(new FormatValue(profile.workoutStats.strengthLvl).getValue(),style: num_style2,softWrap: true,),
 
                             ),
                             new Text("Strength Level",style: txt_style2,softWrap: true,),
@@ -192,25 +214,70 @@ class CompletedState extends State<Completed>
             )
           )
           ),
-          Center(
-            child: new ExerciseBubble(new Exercise(
-              "Chest Press",
-              "",
-              "",
-              ["Chest"],
-              "",
-              "",
-              "intermediate",
-              3,
-              12,
-              30.0,
-              new Category().category[0],
-              null,
-              new Duration(seconds:30),
-              null,
-              ''
+        //  Positioned(
+          //  bottom: 10.0,
+           // child:
+            //new ExerciseBubble(profile.completedWorkouts[0].exercises[0],size: 300.0,)
+          new Align
+                   (
+            alignment: Alignment(0.5,0.7),
+
+          child:new CarouselSlider(
+                items: completedWorkouts.map((cw) {
+                  return new Builder(
+                    builder: (BuildContext context) {
+                      return new Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: new EdgeInsets.symmetric(horizontal: 5.0),
+                          decoration: new BoxDecoration(
+                              color: Colors.green,
+                            borderRadius: BorderRadius.circular(5.0),
+                            border:Border.all(width: 2.5,color:Colors.green)
+                          ),
+                          child: Container(child:SingleChildScrollView(child:cw))
+                      );
+                    },
+                  );
+                }).toList(),
+                height: 280.0,
+                updateCallback: (c){setState(() {
+                  c=0;
+                  if(c>=profile.completedWorkouts.length)
+                    c=0;
+                  else c++;
+                  
+                  currentWrkout=c;
+                });},
+                autoPlayDuration: Duration(seconds: 4),
+
+                autoPlay: playSlide
             )),
-          )
+            //new WorkoutWidget(profile.completedWorkouts[0],profile,),
+//          ),
+       Align(
+         alignment: Alignment.topLeft,
+    child: Row(
+    children: <Widget>[
+      Text("Slideshow: ",style: TextStyle(color: Colors.white),),
+        Switch(onChanged: (play){setState(() {
+          print(play);
+    playSlide=play;
+    });},
+    activeColor: Colors.lightGreenAccent,
+    value: playSlide,
+
+    )
+
+    ],
+    )),
+          Align(
+              alignment: Alignment.bottomRight,
+              child: Row(
+                children: <Widget>[
+                  Text("${currentWrkout+1}/${profile.completedWorkouts.length}",style: TextStyle(color: Colors.white),),
+
+                ],
+              )),
 
         ],
       ),

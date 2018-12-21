@@ -4,19 +4,42 @@ import 'package:twenty_four_hours/Gym/Models/Profile.dart';
 class Workout {
   List<Exercise> _exercises = List<Exercise>();
   String _name = '';
+  String _id='';
+  String _imgUrl='';
   String _level = '';
   Profile _creator = new Profile();
   String _desc = '';
   int _rating = 0;
   List<Superset> superset = new List<Superset>();
+  List<String>_muscles=new List<String>();
 
-  Workout(this._exercises, this._name, this._level, this._creator, this._desc,
+
+  List<String> get muscles => _muscles;
+
+  set muscles(List<String> value) {
+    _muscles = value;
+  }
+
+  Workout(this._exercises, this._name,this._id, this._imgUrl,this._level, this._creator, this._desc,
       this._rating,
-      {this.superset});
+      {this.superset}){this._id=_name+_id;}
+
 
   @override
   String toString() {
-    return 'Workout{_exercises: $_exercises, _name: $_name, _level: $_level, _creator: $_creator, _desc: $_desc, _rating: $_rating, superset: $superset}';
+    return 'Workout{_exercises: $_exercises, _name: $_name, _id: $_id, _imgUrl: $_imgUrl, _level: $_level, _creator: $_creator, _desc: $_desc, _rating: $_rating, superset: $superset}';
+  }
+
+  String get id => _id;
+
+  set id(String value) {
+    _id = value;
+  }
+
+  String get imgUrl => _imgUrl;
+
+  set imgUrl(String value) {
+    _imgUrl = value;
   }
 
   int get rating => _rating;
@@ -54,6 +77,7 @@ class Workout {
   set exercises(List<Exercise> value) {
     _exercises = value;
   }
+
 }
 
 class Superset {

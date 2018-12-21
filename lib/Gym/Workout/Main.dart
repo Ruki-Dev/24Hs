@@ -37,8 +37,10 @@ class WorkoutMainState extends State<WorkoutMain> with TickerProviderStateMixin{
         pageColor = Colors.green;
       } else if (tabController.index == 1) {
         pageColor = Colors.deepPurple;
+      } else if (tabController.index == 2) {
+        pageColor = Colors.amber;
       } else {
-        pageColor = Colors.green;
+        pageColor = Colors.blue;
       }
     });
   }
@@ -56,11 +58,7 @@ class WorkoutMainState extends State<WorkoutMain> with TickerProviderStateMixin{
 
     ];
       return Scaffold(
-        appBar: new AppBar(
-          key:Key("workoutAppBar"),
-          backgroundColor: pageColor,
-          title: new Text(pageTile,style:new TextStyle(fontFamily: 'Exo')),
-        ) ,
+
         body: new TabBarView(
           children: _children,
           controller: tabController,
